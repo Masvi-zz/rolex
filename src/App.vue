@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
-    <BaseRolex msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <BaseRolex msg="Welcome to Your Vue.js App" />
+    </div>
 </template>
 
 <script>
-import BaseRolex from './components/BaseRolex.vue'
+import BaseRolex from "./components/BaseRolex.vue"
 
 export default {
-  name: 'App',
-  components: {
-    BaseRolex,
-  }
+    name: "App",
+    components: {
+        BaseRolex,
+    }
 }
 </script>
 

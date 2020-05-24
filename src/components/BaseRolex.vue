@@ -1,41 +1,48 @@
 <template>
-  <section id="app">
-    <div class="box __presentation">
-      <h1>Controle de horários</h1>
-      <div class="__description">
-        <p>
-          Um simples controle pra jornada de trabalho.
-        </p>
-      </div>
-    </div>
-    <div class="box __hour-column ">
-      <div class="content">
-        <div class="formgroup">
-          <input type="text" class="forminput" placeholder="Entrada" />
-            <label for="name" class="formlabel">
-                Entrada
-            </label>
+    <section id="app">
+        <div class="box __presentation">
+            <h1>Controle de horários</h1>
+            <div class="__description">
+                <p>
+                    Um simples controle pra jornada de trabalho.
+                </p>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="box __results">
-      <div class="propriedade-content">
-        <ul>
-					<li> + 00:16 </li>	
-				</ul>
-      </div>
-      </div>
-  </section>
+        <div class="box __hour-column ">
+            <div class="content">
+                <div class="formgroup">
+                    <input
+                        type="text"
+                        class="forminput"
+                        placeholder="Entrada"
+                    >
+                    <label
+                        for="name"
+                        class="formlabel"
+                    >
+                        Entrada
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="box __results">
+            <div class="propriedade-content">
+                <ul>
+                    <li> + 00:16 </li>	
+                </ul>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
 //import VueTimepicker from 'vue2-timepicker'
 
 export default {
-  name: 'BaseRolex',
-  components: {
+    name: "BaseRolex",
+    components: {
 
-  },
+    },
 }
 </script>
 
