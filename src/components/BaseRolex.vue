@@ -2,29 +2,29 @@
     <section id="app">
         <div class="box __presentation">
             <h1>Controle de horários</h1>
-            <div class="__description">
+            <div class="description">
                 <p>
-                    Um simples controle pra jornada de trabalho.
+                    Um simples controle pra jornada de trabalho. 
                 </p>
-            </div>
-        </div>
-        <div class="box __hour-column ">
-            <div class="content">
-                <div class="formgroup">
-                    <input
-                        type="text"
-                        class="forminput"
-                        placeholder="Entrada"
-                    >
-                    <label
-                        for="name"
-                        class="formlabel"
-                    >
-                        Entrada
-                    </label>
+                <small><p class="small">Vá adicionando entradas até que termine sua joranada.</p></small>
+                <div class="content">
+                    <div class="formgroup">
+                        <input
+                            type="text"
+                            class="forminput"
+                            placeholder="Entrada"
+                        >
+                        <label
+                            for="name"
+                            class="formlabel"
+                        >
+                            Entrada
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
+ 
         <div class="box __results">
             <div class="propriedade-content">
                 <ul>
@@ -49,16 +49,27 @@ export default {
 <style lang="scss">
 
 p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+//   display: block;
+//   margin-block-start: 1em;
+//   margin-block-end: 1em;
+//   margin-inline-start: 0px;
+//   margin-inline-end: 0px;
+
+  &.small {
+    margin-block-start: 0em;
+     margin-block-end: 1em;
+     margin-inline-start: 0px;
+     margin-inline-end: 0px;
+  }
 } 
 
 label {
   display: block;
   color: #555;
+}
+
+.small {
+    padding-top: 0px;
 }
 
 
@@ -75,17 +86,18 @@ label {
 }
 
 .box {
-  width: 200px;
+  width: 700px;
   height: 200px;
 
   margin: 5px;
   padding: 10px 20px;
 
     &.__presentation {
-      width: 300px;
+      width: 500px;
       p {
         color: #7a7d87;
       }
+
     }
 
     &.__results {
@@ -98,10 +110,11 @@ label {
     }
 }
 
-.content {
-  padding: 0 10px;
-  border-left: 2px solid rgba(159, 156, 156, 0.14);
+.description {
+    margin-left: 5px;
+    margin-top: 10px;    
 }
+
 
 .propriedade-content > div, .propriedade-content > ul {
   flex: 1;
