@@ -2,30 +2,32 @@
     <section id="app">
         <div class="container">
             <div class="container__row">
-                <div class="container__col-sm-12 ">
+                <div class="container__col-sm-12">
                     <h1>Controle de horários</h1>
                 </div>
-                <div class="container__col-sm-12 ">
+                <div class="container__col-sm-12">
                     <p>
                         Um simples controle pra jornada de trabalho. 
                     </p>
                 </div>
-                <div class="container__col-sm-12 container__col-md-6">
+                <div class="container__col-sm-12 container__col-md-8">
                     <div class="formgroup">
                         <input
+                            v-model="hour"
                             type="text"
                             class="forminput"
-                            placeholder="Entrada"
+                            :placeholder="labelInput"
+                            @keyup.enter="setNewHour"
                         >
                         <label
                             for="name"
                             class="formlabel"
                         >
-                            Entrada
+                            {{ labelInput }}
                         </label>
                     </div>
                 </div>
-                <div class="container__col-sm-12 container__col-md-6">
+                <div class="container__col-sm-12 container__col-md-4 container__result">
                     <div class="propriedade-content">
                         <ul>
                             <li> + 00:16 </li>
@@ -38,13 +40,30 @@
 </template>
 
 <script>
-//import VueTimepicker from 'vue2-timepicker'
 
 export default {
     name: "BaseRolex",
     components: {
 
     },
+    data() {
+        return {
+            journey: [],
+            hour: null,
+            labelInput: "Entrada"
+        }
+    },
+    methods: {
+        setNewHour() {
+            this.journey.push(this.hour)
+            this.hour = null
+
+            if (this.journey.length === 1) {
+                console.log("informe a saida")
+                this.labelInput = "Saída"
+            }
+        }
+    }
 }
 </script>
 
@@ -59,11 +78,18 @@ $grid__cols: 12;
     margin: 0;
     max-width: 100%;
   }
+
   &__row {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
   }
+
+  &__result {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   @for $i from 1 through $grid__cols {
     &__col-sm-#{$i} {
       flex-basis: (100 / ($grid__cols / $i) ) * 1%;
@@ -78,20 +104,20 @@ $grid__cols: 12;
   }
 }
 
+
+
 //Styling of grid for demostration purposes
 .container {
   //background-color: #88d8b0;
   padding: 10px;
   box-sizing: border-box;
-  &__row {
-    //background-color: #ffeead;
-  }
+  
   @at-root {
     [class*='container__col-'] {
       width: 150px;
       height: 30px;
-    //background-color: #ff6f69;
-    //outline: 1px solid #ffcc5c;
+     // background-color: #ff6f69;
+      //outline: 1px solid #ffcc5c;
       margin: 10px 0;
       display: flex;
       align-items: center;
@@ -122,84 +148,26 @@ label {
   color: #555;
 }
 
-// .small {
-//     padding-top: 0px;
-// }
-
-
-// #app {
-//   height: 100%;
-//   margin: 0;
-// }
-
-// #app {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: flex-end;
-//   justify-content: center;
-// }
-
-// .box {
-//   width: 700px;
-//   height: 200px;
-
-//   margin: 5px;
-//   padding: 10px 20px;
-
-//     &.__presentation {
-//       width: 500px;
-//       p {
-//         color: #7a7d87;
-//       }
-
-//     }
-
-//     &.__results {
-//       padding: 50px 0px;
-//     }
-
-//     &.__hour-column {
-//       padding: 50px 0px;
-      
-//     }
-// }
-
-// .description {
-//     margin-left: 5px;
-//     margin-top: 10px;    
-// }
-
-
 .propriedade-content > div, .propriedade-content > ul {
   flex: 1;
-  padding: 0 50px;
+  padding: 0 30px;
   margin-bottom: 1em;
-  min-width: 260px;
+  min-width: 430px;
 } 
 
 .propriedade-content ul {
-    margin-left: 0px !important;
-  list-style: none;
-  border-left: 2px solid rgba(159, 156, 156, 0.14);
+    margin-left: 0px;
+    list-style: none;
+    border-left: 2px solid rgba(159, 156, 156, 0.14);
 }
 
 .propriedade-content li {
-  padding-top: 15px;
+  padding-top: 0px;
   color: #62a557;
   line-height: 1.6;
   margin-bottom: .5em;
   font-family: courier, monospace;
 }
-
-// .formlabel {
-//   font-family: 'Roboto', sans-serif;
-//   font-size: 1.2rem;
-
-//   margin-top: 0.7rem;
-//   display: block;
-//   transition: all 0.3s;
-//   transform: translateY(0rem);
-// }
 
 .forminput {
   font-family: 'Roboto', sans-serif;
