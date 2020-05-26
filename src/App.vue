@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <BaseRolex msg="Welcome to Your Vue.js App" />
+        <base-rolex msg="Welcome to Your Vue.js App" />
     </div>
 </template>
 
